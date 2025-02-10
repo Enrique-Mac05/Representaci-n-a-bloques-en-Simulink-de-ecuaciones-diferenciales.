@@ -7,20 +7,19 @@ g = 9.81;     % Gravitational Constant (m/s^2)
 Bp = 0.0024;  % Viscous Damping Coefficient at Pendulum Axis (Nms/rad)
 Beq = 4.3;
 M = Mc + Mp;
-Fc = 0;
 alpha0 = deg2rad(1);
 
 %Ganancias
-A = (Ip + Mp * Lp^2) * Beq;
+A = (Ip + (Mp * Lp^2)) * Beq;
 B = (Mp^2) * (Lp^2) * g;
-C = Ip * Mp * Lp - ((Mp^2) * (Lp^3));
+C = (Ip * Mp * Lp) - ((Mp^2) * (Lp^3));
 D = Mp * Lp * Bp;
 E = M * Mp * Lp * g;
 F = M * Bp;
 G = Mp^2 * Lp^2;
 H = Beq * Mp * Lp;
 
-Den = M * Ip + Mc * Mp * (Lp^2);
-I = Mp^2 * Lp^2;
+Den = (M * Ip) + (Mc * Mp * (Lp^2));
+I = (Mp^2) * (Lp^2);
 
 sim("Simulink_Parctica_1.slx")
